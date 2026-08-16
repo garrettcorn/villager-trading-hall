@@ -10,7 +10,7 @@ function esc(str) {
     .replace(/'/g, "&#39;");
 }
 
-function el(tag, attrs, children) {
+function el(tag, attrs, ...children) {
   const node = document.createElement(tag);
   if (attrs) {
     for (const [k, v] of Object.entries(attrs)) {
@@ -22,13 +22,15 @@ function el(tag, attrs, children) {
       else if (v !== false && v != null) node.setAttribute(k, v);
     }
   }
-  if (children != null) {
-    const list = Array.isArray(children) ? children : [children];
-    for (const c of list) {
-      if (c == null) continue;
-      if (typeof c === "string" || typeof c === "number") node.appendChild(document.createTextNode(String(c)));
-      else node.appendChild(c);
-    }
+  const list = [];
+  for (const c of children) {
+    if (Array.isArray(c)) list.push(...c);
+    else list.push(c);
+  }
+  for (const c of list) {
+    if (c == null) continue;
+    if (typeof c === "string" || typeof c === "number") node.appendChild(document.createTextNode(String(c)));
+    else node.appendChild(c);
   }
   return node;
 }

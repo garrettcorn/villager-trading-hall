@@ -42,8 +42,28 @@ jobs:
         with:
           path: .
 
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Playwright
+        run: pip install playwright && python -m playwright install --with-deps chromium
+
+      - name: Run end-to-end smoke tests
+        run: |
+          python3 -m http.server 8791 >/dev/null 2>&1 &
+          sleep 2
+          python3 tests/smoke_test.py http://localhost:8791/index.html
+
   deploy:
-    needs: build
+    needs: [build, smoke]
     runs-on: ubuntu-latest
     environment:
       name: github-pages
