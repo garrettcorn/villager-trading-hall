@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#2fbf4f" />
+  <meta name="description" content="Track Minecraft villager trading halls, librarian enchanted book trades, and Java/Bedrock trade discounts. Works offline." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Trading Hall" />
+  <title>Villager Trading Hall Tracker</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-emerald" aria-hidden="true">&#9670;</span>
+      <div class="brand-text">
+        <h1>Villager Trading Hall</h1>
+        <span class="subtitle">Java &amp; Bedrock tracker</span>
+      </div>
+    </div>
+    <nav class="nav" aria-label="Main">
+      <button class="nav-tab" data-route="hall" type="button">Hall</button>
+      <button class="nav-tab" data-route="books" type="button">Books</button>
+      <button class="nav-tab" data-route="discounts" type="button">Discounts</button>
+      <button class="nav-tab" data-route="data" type="button">Data</button>
+    </nav>
+  </header>
+
+  <main id="view"></main>
+
+  <div id="toasts" aria-live="polite"></div>
+
+  <footer class="app-footer">
+    <span>Unofficial fan tool. Not affiliated with Mojang or Microsoft.</span>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/prices.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "name": "Villager Trading Hall Tracker",
+  "short_name": "Trading Hall",
+  "description": "Track Minecraft villager trading halls, librarian enchanted book trades, and Java/Bedrock trade discounts. Works offline.",
+  "id": "/villager-trading-hall/",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#132a17",
+  "theme_color": "#2fbf4f",
+  "categories": ["games", "utilities"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
